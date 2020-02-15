@@ -1,0 +1,14 @@
+extends mathlayout
+
+block content
+    h1= title
+
+    form(method=POST action="/check")
+        each q in data.questions
+            div.form-group
+                label(for=q.index) #{q.question} 
+                input.form-control(id=q.index, type=text, name=q.index)
+
+        else
+            There are no questions.
+    button.btn.btn-primary(type=submit) Check Answers
