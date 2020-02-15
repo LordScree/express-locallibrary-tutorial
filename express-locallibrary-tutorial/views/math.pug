@@ -3,6 +3,8 @@ extends mathlayout
 block content
     h1= title
 
+    p There are #{data.question_count} questions.
+
     form(method=POST action="/check")
         each q in data.question_list
             div.form-group

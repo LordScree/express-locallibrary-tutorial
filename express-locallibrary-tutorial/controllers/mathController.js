@@ -1,4 +1,4 @@
-var Math = require('../models/math');
+var Math = require("../models/math");
 
 var async = require("async");
 
@@ -6,12 +6,10 @@ exports.index = function(req, res) {
   async.parallel(
     {
       question_count: function(callback) {
-        Math.countDocuments({}, callback); // Pass an empty object as match condition to find all documents of this collection
+        Math.countDocuments({}, callback);
       },
       question_list: function(callback) {
-        Math.find({}, "question _id").exec(function(err, list_questions) {
-          callback(err, list_questions);
-        });
+        Math.find({}, null, callback);
       }
     },
     function(err, results) {

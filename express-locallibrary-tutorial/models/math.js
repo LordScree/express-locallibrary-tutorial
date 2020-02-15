@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var MathSchema = new Schema({
-  _id: { type: String, required: true },
+  _id: { type: mongoose.Types.ObjectId, required: true },
   operand_a: { type: mongoose.Types.Decimal128, required: true },
   operand_b: { type: mongoose.Types.Decimal128, required: true },
   operator: { type: String, required: true }
