@@ -4,10 +4,10 @@ block content
     h1= title
 
     form(method=POST action="/check")
-        each q in data.questions
+        each q in data.question_list
             div.form-group
-                label(for=q.index) #{q.question} 
-                input.form-control(id=q.index, type=text, name=q.index)
+                label(for=q._id) #{q.question} 
+                input.form-control(id=q._id, type=text, name=q._id)
 
         else
             There are no questions.
