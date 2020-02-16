@@ -3,15 +3,14 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var MathSchema = new Schema({
-  _id: { type: mongoose.Types.ObjectId, required: true },
   operand_a: { type: mongoose.Types.Decimal128, required: true },
   operand_b: { type: mongoose.Types.Decimal128, required: true },
   operator: { type: String, required: true }
-});
+}, { collection: 'mathQuestions' });
 
 // Virtual for question's text
-MathSchema.virtual("question").get(function() {
-  return "What is " + this.operand_a + this.operator + this.operand_b + "?";
+MathSchema.virtual("questionHtml").get(function() {
+  return "What is <span class='operand'>" + this.operand_a + "</span> <span class='operator'>" + this.operator + "</span> <span class='operand'>" + this.operand_b + "</span>?";
 });
 
 // Virtual for this question's answer
@@ -31,4 +30,4 @@ MathSchema.virtual("answer").get(function() {
 });
 
 //Export model
-module.exports = mongoose.model("Math", MathSchema);
+module.exports = mongoose.model("MathQuestion", MathSchema);

@@ -5,12 +5,17 @@ block content
 
     p There are #{data.question_count} questions.
 
-    form(method=POST action="/check")
+    form(method="POST" action="/math/check")
         each q in data.question_list
             div.form-group
-                label(for=q._id) #{q.question} 
+                label(for=q._id) What is 
+                    span.operand #{q.operand_a} 
+                    span.operator #{q.operator} 
+                    span.operand #{q.operand_b}?
                 input.form-control(id=q._id, type=text, name=q._id)
 
         else
-            There are no questions.
-    button.btn.btn-primary(type=submit) Check Answers
+            div.form-group
+                There are no questions.
+
+        button.btn.btn-primary(type=submit) Check Answers

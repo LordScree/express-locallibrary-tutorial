@@ -13,7 +13,7 @@ var BookInstanceSchema = new Schema({
     default: "Maintenance"
   },
   due_back: { type: Date, default: Date.now }
-});
+}, {collection: 'bookInstances'});
 
 // Virtual for bookinstance's URL
 BookInstanceSchema
