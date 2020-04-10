@@ -5,7 +5,7 @@ var BookInstance = require("../models/bookinstance");
 
 var async = require("async");
 
-exports.index = function(req, res) {
+exports.index = function(req, res, next) {
   async.parallel(
     {
       book_count: function(callback) {
@@ -48,7 +48,7 @@ exports.book_list = function(req, res, next) {
 };
 
 // Display detail page for a specific book.
-exports.book_detail = function(req, res) {
+exports.book_detail = function(req, res, next) {
   async.parallel(
     {
       book: function(callback) {
